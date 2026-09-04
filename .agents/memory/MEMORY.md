@@ -1,0 +1,1 @@
+- [Orval and Zod integers](orval-zod-integer.md) — use OpenAPI number plus server-side whole-number checks until the workspace generator/runtime versions align.

@@ -1,6 +1,6 @@
-# [Project name]
+# Panello
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+Marketing website for Panello, a Kazakhstan manufacturer of facade thermal panels, with a bilingual quote request flow.
 
 ## Run & Operate
 
@@ -22,15 +22,22 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/panello-site/` — the public React/Vite landing page.
+- `artifacts/api-server/src/routes/leads.ts` — quote request endpoint.
+- `lib/api-spec/openapi.yaml` — source of truth for the API contract.
+- `lib/db/src/schema/leads.ts` — persisted quote request schema.
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- Quote requests are persisted in PostgreSQL so the success state represents a real server-side submission.
+- The marketing page uses the generated API client rather than hand-written fetch calls.
+- RU/KZ copy switching stays client-side because the page has one public route and no account-specific content.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+- Visitors can browse the Panello facade-panel story, materials, process, and project proof.
+- Visitors can switch between Russian and Kazakh copy.
+- Visitors can submit their name, phone, and facade area for a quote.
 
 ## User preferences
 

@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Panello"
+description = "Marketing website for Panello, a Kazakhstan manufacturer of facade thermal panels. Includes product presentation, bilingual RU/KZ content, and a working quote request form."
+version = "1.0.0"
+id = "artifacts/panello-site"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22239
+
+[services.development]
+run = "pnpm --filter @workspace/panello-site run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/panello-site", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/panello-site/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22239"
+BASE_PATH = "/"
